@@ -13,9 +13,9 @@
 [Valerio Veraldo - YouTube](https://www.youtube.com/watch?v=iCwMQJnKk2c&list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0&ab_channel=ValerioVelardo-TheSoundofAI)
 
 **Other sources:**
-
 [Audio Style Transfer with GANs - Towards Data Science](https://towardsdatascience.com/voice-translation-and-audio-style-transfer-with-gans-b63d58f61854) \
 [Image Padding Techniques - Machinecurve](https://www.machinecurve.com/index.php/2020/02/10/using-constant-padding-reflection-padding-and-replication-padding-with-keras/) \
+[Contrastive Loss - Towards Data Science](https://towardsdatascience.com/how-to-choose-your-loss-when-designing-a-siamese-neural-net-contrastive-triplet-or-quadruplet-ecba11944ec) \
 [Inpainting with AI - Towards Data Science](https://towardsdatascience.com/inpainting-with-ai-get-back-your-images-pytorch-a68f689128e5) \
 [Genetic Algorithm Generates Music - Youtube](https://www.youtube.com/watch?v=aOsET8KapQQ&t=218s)
 

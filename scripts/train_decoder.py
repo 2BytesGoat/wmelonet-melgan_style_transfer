@@ -188,7 +188,9 @@ def main():
                     for i, (voc, _) in enumerate(zip(test_voc, test_audio)):
                         pred_audio = netG(voc)
                         pred_audio = pred_audio.squeeze().cpu()
-                        save_sample(root / ("generated_%d.wav" % i), 22050, pred_audio)
+                        dst_path = root / f'steps_{steps}'
+                        dst_path.mkdir(exist_ok=True)
+                        save_sample(dst_path / ("generated_%d.wav" % i), 22050, pred_audio)
                         writer.add_audio(
                             "generated/sample_%d.wav" % i,
                             pred_audio,
