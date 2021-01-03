@@ -33,7 +33,7 @@ class MelVocoder:
         path,
         device=get_default_device(),
         github=False,
-        model_name="multi_speaker",
+        model_name="linda_johnson",
     ):
         self.fft = Audio2Mel().to(device)
         if github:
