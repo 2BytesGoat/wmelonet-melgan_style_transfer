@@ -17,7 +17,7 @@
 [Audio Style Transfer with GANs - Towards Data Science](https://towardsdatascience.com/voice-translation-and-audio-style-transfer-with-gans-b63d58f61854) <- where I started from\
 [Image Padding Techniques - Machinecurve](https://www.machinecurve.com/index.php/2020/02/10/using-constant-padding-reflection-padding-and-replication-padding-with-keras/) <- they used reflection padding in the paper\
 [Inpainting with AI - Towards Data Science](https://towardsdatascience.com/inpainting-with-ai-get-back-your-images-pytorch-a68f689128e5) <- this is where I got the inspiration for style transfer \
-[Contrastive Loss - Towards Data Science](https://towardsdatascience.com/how-to-choose-your-loss-when-designing-a-siamese-neural-net-contrastive-triplet-or-quadruplet-ecba11944ec) <- I may use this for style loss \
+[Contrastive Loss - Towards Data Science](https://towardsdatascience.com/how-to-choose-your-loss-when-designing-a-siamese-neural-net-contrastive-triplet-or-quadruplet-ecba11944ec) <- I may use this for style loss
 
 **Other sources:**
 
