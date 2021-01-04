@@ -8,6 +8,10 @@
 [MelGAN - GitHub](https://github.com/descriptinc/melgan-neurips) <-starting code \
 [MelGAN - paper](https://arxiv.org/pdf/1910.06711.pdf) <- paper on which the starting code is based
 
+**Dataset:**
+
+[Gtzan Dataset - Kaggle](https://www.kaggle.com/andradaolteanu/gtzan-dataset-music-genre-classification)
+
 **Audio theory:**
 
 [Valerio Veraldo - YouTube](https://www.youtube.com/watch?v=iCwMQJnKk2c&list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0&ab_channel=ValerioVelardo-TheSoundofAI)
@@ -31,9 +35,8 @@ A1: It's because the quality is way higher than the spectogram (we lose informat
 Q2: Why use 1D filters and not 2D? \
 A2: Because collumns in a spectogram have more meaning than square-crops.
 
-Q3: Why didn't you use the generator to make music? \
-A3: Because I wanted to finish the project in one week, but you can give it a try.\
-*P.S. If you do try, ping me... I'm curious and would like to help if II have time.*
+Q3: What results did you have when using texture transfer on sound? \
+A3: Content and style were merged, as if I was listening to both songs in the same time.
   
 # ToDos
 
@@ -41,7 +44,8 @@ A3: Because I wanted to finish the project in one week, but you can give it a tr
 [o] <s>Create spectogram encoder-decoder</s> \
 [x] <s>Understand how image style transfer works</s> \
 [x] <s>Try image style transfer on sounds using discriminators</s> \
-[o] Use siamese loss for style points \
+[x] <s>Use siamese loss for style points</s> \
+[x] Build GAN for style transfer
 [o] Clean-up and explain better notebooks
 
 # **Based on** the official repository for the paper **MelGAN**
