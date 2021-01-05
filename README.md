@@ -43,9 +43,9 @@ A3: Content and style were merged, as if I was listening to both songs in the sa
 # ToDos
 
 [x] <s>Experiment with spectograms</s> \
-[o] <s>Create spectogram encoder-decoder</s> \
 [x] <s>Understand how image style transfer works</s> \
 [x] <s>Try image style transfer on sounds using discriminators</s> \
 [x] <s>Use siamese loss for style points</s> \
+[o] Create spectogram encoder-decoder \
 [o] Build GAN for style transfer \
 [o] Clean-up and explain better notebooks
