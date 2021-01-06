@@ -28,8 +28,8 @@ def parse_args():
     parser.add_argument("--n_mel_channels", type=int, default=128)
 
     parser.add_argument("--epochs", type=int, default=3000)
-    parser.add_argument("--log_interval", type=int, default=5)
-    parser.add_argument("--save_interval", type=int, default=10)
+    parser.add_argument("--log_interval", type=int, default=100)
+    parser.add_argument("--save_interval", type=int, default=1000)
     parser.add_argument("--n_test_samples", type=int, default=8)
     args = parser.parse_args()
     return args
@@ -105,20 +105,20 @@ def main():
     ##########################
     source_voc = []
     style_voc = []
-    for i, [so_t, st_t] in enumerate(zip(so_te_loader, st_te_loader)):
+    for i, [so_audio, st_audio] in enumerate(zip(so_te_loader, st_te_loader)):
         # Loading on device
-        so_t = so_t.cuda()
-        st_t = st_t.cuda()
+        so_audio = so_audio.cuda()
+        st_audio = st_audio.cuda()
 
         # Transforming to spectograms
-        so_t = fft(so_t).detach()
-        st_t = fft(st_t).detach()
+        so_mel = fft(so_audio).detach()
+        st_mel = fft(st_audio).detach()
 
-        source_voc.append(so_t.cuda())
-        style_voc.append(st_t.cuda())
+        source_voc.append(so_mel.cuda())
+        style_voc.append(st_mel.cuda())
 
-        soruce_audio = so_t.squeeze().cpu()
-        style_audio = st_t.squeeze().cpu()
+        soruce_audio = so_audio.squeeze().cpu()
+        style_audio = st_audio.squeeze().cpu()
         save_sample(root / ("source_%d.wav" % i), 22050, soruce_audio)
         save_sample(root / ("style_%d.wav" % i), 22050, style_audio)
         # writer.add_audio("source/sample_%d.wav" % i, soruce_audio, 0, sample_rate=22050)
@@ -126,9 +126,6 @@ def main():
 
         if i == args.n_test_samples - 1:
             break
-
-    # print(so_t.shape)
-    # exit()
 
     start = time.time()
 

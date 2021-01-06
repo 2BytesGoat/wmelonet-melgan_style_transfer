@@ -19,7 +19,7 @@ def parse_args():
     parser.add_argument("--save_path", required=True)
     parser.add_argument("--load_path", default=None)
 
-    parser.add_argument("--n_mel_channels", type=int, default=80)
+    parser.add_argument("--n_mel_channels", type=int, default=128)
     parser.add_argument("--ngf", type=int, default=32)
     parser.add_argument("--n_residual_layers", type=int, default=3)
 
@@ -83,12 +83,14 @@ def main():
     #######################
     # Create data loaders #
     #######################
+    sequence_length = args.seq_len * 4
+
     train_set = AudioDataset(
-        Path(args.data_path) / "train_files.txt", args.seq_len, sampling_rate=22050
+        Path(args.data_path) / "train_files.txt", sequence_length, sampling_rate=22050
     )
     test_set = AudioDataset(
         Path(args.data_path) / "test_files.txt",
-        args.seq_len * 12,
+        sequence_length,
         sampling_rate=22050,
         augment=False,
     )
