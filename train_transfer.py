@@ -27,7 +27,7 @@ def parse_args():
     parser.add_argument("--seq_len", type=int, default=8192)
     parser.add_argument("--n_mel_channels", type=int, default=128)
 
-    parser.add_argument("--epochs", type=int, default=3000)
+    parser.add_argument("--epochs", type=int, default=30000)
     parser.add_argument("--log_interval", type=int, default=100)
     parser.add_argument("--save_interval", type=int, default=1000)
     parser.add_argument("--n_test_samples", type=int, default=8)
@@ -61,7 +61,7 @@ def main():
 
     # Load MelGAN model
     netG = Generator(args.n_mel_channels, ngf=32, n_residual_layers=3).to(device)
-    # netG.load_state_dict(torch.load(load_root / "netG.pt"))
+    netG.load_state_dict(torch.load(load_root / "netG.pt"))
 
     print('Loading data...')
     #############################
@@ -117,8 +117,9 @@ def main():
         source_voc.append(so_mel.cuda())
         style_voc.append(st_mel.cuda())
 
-        soruce_audio = so_audio.squeeze().cpu()
-        style_audio = st_audio.squeeze().cpu()
+        with torch.no_grad():
+            soruce_audio = netG(so_mel).squeeze().cpu()
+            style_audio = netG(st_mel).squeeze().cpu()
         save_sample(root / ("source_%d.wav" % i), 22050, soruce_audio)
         save_sample(root / ("style_%d.wav" % i), 22050, style_audio)
         # writer.add_audio("source/sample_%d.wav" % i, soruce_audio, 0, sample_rate=22050)
@@ -143,8 +144,9 @@ def main():
             st_t = st_t.cuda()
 
             # Transforming to spectograms
-            so_t = fft(so_t).detach().unsqueeze(1)
-            st_t = fft(st_t).detach().unsqueeze(1)
+            with torch.no_grad():
+                so_t = fft(so_t).detach().unsqueeze(1)
+                st_t = fft(st_t).detach().unsqueeze(1)
 
             # Calculate losses and update weights
             dis_loss = model.dis_update(so_t, st_t)
